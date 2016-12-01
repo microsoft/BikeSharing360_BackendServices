@@ -1,0 +1,27 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "BikeSharingServicePlanName": {
+      "value": "BikeSharingAppPlan"
+    },
+    "bikesharing360AdminLogin": {
+      "value": "MyBikes"
+    },
+    "bikesharing360AdminLoginPassword": {
+      "value": "BikesShare360@1"
+    },
+    "bikesharing-services-eventsName": {
+      "value": "bikesharing-services-eventsName"
+    },
+    "bikesharing-services-feedbackName": {
+      "value": "bikesharing-services-feedbackName"
+    },
+    "bikesharing-services-profilesName": {
+      "value": "bikesharing-services-profilesName"
+    },
+    "bikesharing-services-ridesName": {
+      "value": "bikesharing-services-ridesName"
+    }
+  }
+}

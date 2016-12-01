@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BikeSharing.Services.Rides.Database", "src\BikeSharing.Services.Rides.Database\BikeSharing.Services.Rides.Database.sqlproj", "{19258A6A-B353-4992-90E2-35C5B44D9ACE}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "BikeSharing.Services.Rides", "src\BikeSharing.Services.Rides\BikeSharing.Services.Rides.njsproj", "{E860804D-B1EF-418F-B7FF-77426DED9329}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19258A6A-B353-4992-90E2-35C5B44D9ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19258A6A-B353-4992-90E2-35C5B44D9ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19258A6A-B353-4992-90E2-35C5B44D9ACE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{19258A6A-B353-4992-90E2-35C5B44D9ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19258A6A-B353-4992-90E2-35C5B44D9ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19258A6A-B353-4992-90E2-35C5B44D9ACE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E860804D-B1EF-418F-B7FF-77426DED9329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E860804D-B1EF-418F-B7FF-77426DED9329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E860804D-B1EF-418F-B7FF-77426DED9329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E860804D-B1EF-418F-B7FF-77426DED9329}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

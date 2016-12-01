@@ -1,0 +1,4 @@
+![Bb]in/
+[Bb]in/*.dll
+*.map
+!.gitignore

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>9e41b1db-310c-42b7-9400-d1cb43fa1399</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkIdentifier>Deployment</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>1.0</TargetFrameworkVersion>
+    <PrepareForBuildDependsOn>
+    </PrepareForBuildDependsOn>
+  </PropertyGroup>
+  <Import Condition=" Exists('Deployment.targets') " Project="Deployment.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- vertag<:>start tokens<:>maj.min -->
+  <Import Condition=" Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets') " Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets" />
+  <!-- vertag<:>end -->
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default-publish.ps1" />
+    <Content Include="Data\dacpac\bikesharing-services-events.dacpac" />
+    <Content Include="Data\DeployDacpac.ps1" />
+    <Content Include="Data\dacpac\bikesharing-services-feedback.dacpac" />
+    <Content Include="Data\dacpac\bikesharing-services-profiles.dacpac" />
+    <Content Include="Data\dacpac\bikesharing-services-rides.dacpac" />
+    <None Include="Deployment.targets">
+      <Visible>False</Visible>
+    </None>
+    <Content Include="Deploy-AzureResourceGroup.ps1" />
+    <Content Include="Templates\azuredeploy.json" />
+    <Content Include="Templates\azuredeploy.parameters.json" />
+    <Content Include="PublishASPNET.ps1" />
+    <Content Include="Create-NetCore-Package.ps1" />
+    <Content Include="lib\Microsoft.SqlServer.Dac.1.0.3\lib\Microsoft.Data.Tools.Schema.Sql.dll" />
+    <Content Include="lib\Microsoft.SqlServer.Dac.1.0.3\lib\Microsoft.Data.Tools.Utilities.dll" />
+    <Content Include="lib\Microsoft.SqlServer.Dac.1.0.3\lib\Microsoft.SqlServer.Dac.dll" />
+    <Content Include="lib\Microsoft.SqlServer.Dac.1.0.3\Microsoft.SqlServer.Dac.1.0.3.nupkg" />
+  </ItemGroup>
+  <Target Name="GetReferenceAssemblyPaths" />
+</Project>

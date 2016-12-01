@@ -1,0 +1,15 @@
+{
+  "name": "my-bikes.services.rides",
+  "version": "0.0.0",
+  "description": "MyBikes.Services.Rides",
+  "main": "server.js",
+  "author": {
+    "name": "connect"
+  },
+  "dependencies": {
+    "glob": "^7.0.6",
+    "restify": "^4.1.1",
+    "sequelize": "^3.24.1",
+    "tedious": "^1.14.0"
+  }
+}

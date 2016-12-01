@@ -1,0 +1,507 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "BikeSharingServicePlanName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "BikeSharingServicePlanSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Free",
+        "Shared",
+        "Basic",
+        "Standard"
+      ],
+      "defaultValue": "Free"
+    },
+    "BikeSharingServicePlanWorkerSize": {
+      "type": "string",
+      "allowedValues": [
+        "0",
+        "1",
+        "2"
+      ],
+      "defaultValue": "0"
+    },
+    "bikesharing360AdminLogin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bikesharing360AdminLoginPassword": {
+      "type": "securestring"
+    },
+    "bikesharing-services-eventsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bikesharing-services-eventsCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "bikesharing-services-eventsEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "bikesharing-services-eventsRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "bikesharing-services-feedbackName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bikesharing-services-feedbackCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "bikesharing-services-feedbackEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "bikesharing-services-feedbackRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "bikesharing-services-profilesName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bikesharing-services-profilesCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "bikesharing-services-profilesEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "bikesharing-services-profilesRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "bikesharing-services-ridesName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bikesharing-services-ridesCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "bikesharing-services-ridesEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "bikesharing-services-ridesRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "profilesStorageType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    }
+  },
+  "variables": {
+    "bikesharing360Name": "[concat('bikesharing360', uniqueString(resourceGroup().id))]",
+    "bikesharing-services-eventsName": "[concat('bikesharing-services-events', uniqueString(resourceGroup().id))]",
+    "bikesharing-services-feedbackName": "[concat('bikesharing-services-feedback', uniqueString(resourceGroup().id))]",
+    "bikesharing-services-profilesName": "[concat('bikesharing-services-profiles', uniqueString(resourceGroup().id))]",
+    "bikesharing-services-ridesName": "[concat('bikesharing-services-rides', uniqueString(resourceGroup().id))]",
+    "profilesStorageName": "[concat('prof', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[parameters('BikeSharingServicePlanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-06-01",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "BikeSharingServicePlan"
+      },
+      "properties": {
+        "name": "[parameters('BikeSharingServicePlanName')]",
+        "sku": "[parameters('BikeSharingServicePlanSKU')]",
+        "workerSize": "[parameters('BikeSharingServicePlanWorkerSize')]",
+        "numberOfWorkers": 1
+      }
+    },
+    {
+      "name": "[variables('bikesharing360Name')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-04-01-preview",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "bikesharing360"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('bikesharing360AdminLogin')]",
+        "administratorLoginPassword": "[parameters('bikesharing360AdminLoginPassword')]"
+      },
+      "resources": [
+        {
+          "name": "AllowAllWindowsAzureIps",
+          "type": "firewallrules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('bikesharing360Name'))]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "255.255.255.255"
+          }
+        },
+        {
+          "name": "[parameters('bikesharing-services-eventsName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('bikesharing360Name'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-events"
+          },
+          "properties": {
+            "collation": "[parameters('bikesharing-services-eventsCollation')]",
+            "edition": "[parameters('bikesharing-services-eventsEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('bikesharing-services-eventsRequestedServiceObjectiveName')]"
+          }
+        },
+        {
+          "name": "[parameters('bikesharing-services-feedbackName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('bikesharing360Name'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-feedback"
+          },
+          "properties": {
+            "collation": "[parameters('bikesharing-services-feedbackCollation')]",
+            "edition": "[parameters('bikesharing-services-feedbackEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('bikesharing-services-feedbackRequestedServiceObjectiveName')]"
+          }
+        },
+        {
+          "name": "[parameters('bikesharing-services-profilesName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('bikesharing360Name'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-profiles"
+          },
+          "properties": {
+            "collation": "[parameters('bikesharing-services-profilesCollation')]",
+            "edition": "[parameters('bikesharing-services-profilesEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('bikesharing-services-profilesRequestedServiceObjectiveName')]"
+          }
+        },
+        {
+          "name": "[parameters('bikesharing-services-ridesName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('bikesharing360Name'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-rides"
+          },
+          "properties": {
+            "collation": "[parameters('bikesharing-services-ridesCollation')]",
+            "edition": "[parameters('bikesharing-services-ridesEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('bikesharing-services-ridesRequestedServiceObjectiveName')]"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('bikesharing-services-eventsName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName')))]": "Resource",
+        "displayName": "bikesharing-services-events"
+      },
+      "properties": {
+        "name": "[variables('bikesharing-services-eventsName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      },
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('bikesharing-services-eventsName'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-events-settings"
+          },
+          "properties": {
+            "ConnectionStrings:DefaultConnection": "[concat('Server=tcp:', reference(concat('Microsoft.Sql/servers/', variables('bikesharing360Name'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('bikesharing-services-eventsName'), ';User Id=', parameters('bikesharing360AdminLogin'),  ';Password=', parameters('bikesharing360AdminLoginPassword'), ';')]"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('bikesharing-services-feedbackName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName')))]": "Resource",
+        "displayName": "bikesharing-services-feedback"
+      },
+      "properties": {
+        "name": "[variables('bikesharing-services-feedbackName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      },
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('bikesharing-services-feedbackName'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-feedback-settings"
+          },
+          "properties": {
+            "ConnectionStrings:DefaultConnection": "[concat('Server=tcp:', reference(concat('Microsoft.Sql/servers/', variables('bikesharing360Name'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('bikesharing-services-feedbackName'), ';User Id=', parameters('bikesharing360AdminLogin'),  ';Password=', parameters('bikesharing360AdminLoginPassword'), ';')]"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('bikesharing-services-profilesName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName')))]": "Resource",
+        "displayName": "bikesharing-services-profiles"
+      },
+      "properties": {
+        "name": "[variables('bikesharing-services-profilesName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      },
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('bikesharing-services-profilesName'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-profiles-settings"
+          },
+          "properties": {
+            "ConnectionStrings:DefaultConnection": "[concat('Server=tcp:', reference(concat('Microsoft.Sql/servers/', variables('bikesharing360Name'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('bikesharing-services-profilesName'), ';User Id=', parameters('bikesharing360AdminLogin'),  ';Password=', parameters('bikesharing360AdminLoginPassword'), ';')]",
+            "ConnectionStrings:avatarBlob": "[concat('DefaultEndpointsProtocol=https;Account Name=', variables('profilesStorageName'), ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('profilesStorageName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
+            "AvatarsUrl": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('profilesStorageName')), '2016-01-01').primaryEndpoints.blob, 'avatar-output/')]"
+          }
+
+        }
+      ]
+    },
+    {
+      "name": "[variables('bikesharing-services-ridesName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName')))]": "Resource",
+        "displayName": "bikesharing-services-rides"
+      },
+      "properties": {
+        "name": "[variables('bikesharing-services-ridesName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('BikeSharingServicePlanName'))]"
+      },
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('bikesharing-services-ridesName'))]"
+          ],
+          "tags": {
+            "displayName": "bikesharing-services-rides-settings"
+          },
+          "properties": {
+            "databasePassword": "[parameters('bikesharing360AdminLoginPassword')]",
+            "databaseServer": "[variables('bikesharing360Name')]",
+            "databaseUsername": "[parameters('bikesharing360AdminLogin')]",
+            "database": "[parameters('bikesharing-services-ridesName')]"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('profilesStorageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "profilesStorage"
+      },
+      "properties": {
+        "accountType": "[parameters('profilesStorageType')]"
+      }
+    }
+  ],
+  "outputs": {
+    "servicesWebAppName": {
+      "type": "string",
+      "value": "[variables('bikesharing-services-eventsName')]"
+    },
+    "profilesWebAppName": {
+      "type": "string",
+      "value": "[variables('bikesharing-services-profilesName')]"
+    },
+    "feedbackWebAppName": {
+      "type": "string",
+      "value": "[variables('bikesharing-services-feedbackName')]"
+    },
+    "ridesWebAppName": {
+      "type": "string",
+      "value": "[variables('bikesharing-services-ridesName')]"
+    },
+    "dbServer": {
+      "type": "string",
+      "value": "[reference(concat('Microsoft.Sql/servers/', variables('bikesharing360Name'))).fullyQualifiedDomainName]"
+    },
+    "dbLogin": {
+      "type": "string",
+      "value": "[parameters('bikesharing360AdminLogin')]"
+    },
+    "dbPassword": {
+      "type": "string",
+      "value": "[parameters('bikesharing360AdminLoginPassword')]"
+    },
+    "dbEventsName": {
+      "type": "string",
+      "value": "[parameters('bikesharing-services-eventsName')]"
+    },
+    "dbProfilesName": {
+      "type": "string",
+      "value": "[parameters('bikesharing-services-profilesName')]"
+    },
+    "dbFeedbackName": {
+      "type": "string",
+      "value": "[parameters('bikesharing-services-feedbackName')]"
+    },
+    "dbRidesName": {
+      "type": "string",
+      "value": "[parameters('bikesharing-services-ridesName')]"
+    }
+  }
+}
