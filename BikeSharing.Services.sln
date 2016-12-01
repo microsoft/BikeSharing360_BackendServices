@@ -1,24 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.25928.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Events", "src\BikeSharing.Services.Events\BikeSharing.Services.Events.xproj", "{E1C028D9-F291-432F-9FE6-CCE978EB3D92}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Core", "src\BikeSharing.Services.Core\BikeSharing.Services.Core.xproj", "{A3DF7531-915C-4102-8BEF-D42C5E5328F9}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Profiles", "src\BikeSharing.Services.Profiles\BikeSharing.Services.Profiles.xproj", "{77D4C171-058F-4CD5-83D8-9B73BB899165}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Feedback", "src\BikeSharing.Services.Feedback\BikeSharing.Services.Feedback.xproj", "{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D}"
-EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "BikeSharing.Services.Rides", "src\BikeSharing.Services.Rides\BikeSharing.Services.Rides.njsproj", "{E860804D-B1EF-418F-B7FF-77426DED9329}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Profiles.Models", "src\BikeSharing.Services.Profiles.Models\BikeSharing.Services.Profiles.Models.xproj", "{7E1A44A2-5F13-490C-AD7E-8D0FEE794196}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Events.Models", "src\BikeSharing.Services.Events.Models\BikeSharing.Services.Events.Models.xproj", "{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Security", "src\BikeSharing.Services.Security\BikeSharing.Services.Security.xproj", "{25F3477F-541E-41CD-8266-14FD2ED00429}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feedback", "Feedback", "{55E582C5-A24D-49C6-B37B-C8017BAA1B2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rides", "Rides", "{6DD3A282-E59F-4967-9037-9184A623B333}"
@@ -26,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events", "Events", "{358BE8F8-90ED-4F28-8AC3-5485039470D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiles", "Profiles", "{6E055785-8A9F-4F22-8214-1960F9E89C22}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "BikeSharing.Services.Rides", "src\BikeSharing.Services.Rides\BikeSharing.Services.Rides.njsproj", "{E860804D-B1EF-418F-B7FF-77426DED9329}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BikeSharing.Services.Events.Database", "src\BikeSharing.Services.Events.Database\BikeSharing.Services.Events.Database.sqlproj", "{4D24111F-8631-4E89-94B9-5E96CDD486AA}"
 EndProject
@@ -35,44 +21,30 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BikeSharing.Services.Rides.
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BikeSharing.Services.Profiles.Database", "src\BikeSharing.Services.Profiles.Database\BikeSharing.Services.Profiles.Database.sqlproj", "{806BA3B3-00C2-4B15-BEF5-A55971DC92BC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Events", "src\BikeSharing.Services.Events\BikeSharing.Services.Events.csproj", "{EAC06A38-DF91-4C47-9808-C3ABCA485F98}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Events.Models", "src\BikeSharing.Services.Events.Models\BikeSharing.Services.Events.Models.csproj", "{224D599B-005F-4291-A005-D558F23B62B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Feedback", "src\BikeSharing.Services.Feedback\BikeSharing.Services.Feedback.csproj", "{99FB951A-7E71-4F65-ADBB-8E4257478424}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Profiles", "src\BikeSharing.Services.Profiles\BikeSharing.Services.Profiles.csproj", "{E06CFF9E-0CF5-47AB-90A3-607EABD0BBFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Profiles.Models", "src\BikeSharing.Services.Profiles.Models\BikeSharing.Services.Profiles.Models.csproj", "{7DD0BE1E-4B4E-4D53-B0FC-1DB5B6553341}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Core", "src\BikeSharing.Services.Core\BikeSharing.Services.Core.csproj", "{F200A548-6C21-401C-B9BC-A69B815531F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Security", "src\BikeSharing.Services.Security\BikeSharing.Services.Security.csproj", "{C5F87A10-0B35-4310-A194-C9409E562303}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E1C028D9-F291-432F-9FE6-CCE978EB3D92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1C028D9-F291-432F-9FE6-CCE978EB3D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1C028D9-F291-432F-9FE6-CCE978EB3D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1C028D9-F291-432F-9FE6-CCE978EB3D92}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3DF7531-915C-4102-8BEF-D42C5E5328F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3DF7531-915C-4102-8BEF-D42C5E5328F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3DF7531-915C-4102-8BEF-D42C5E5328F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3DF7531-915C-4102-8BEF-D42C5E5328F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77D4C171-058F-4CD5-83D8-9B73BB899165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77D4C171-058F-4CD5-83D8-9B73BB899165}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77D4C171-058F-4CD5-83D8-9B73BB899165}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77D4C171-058F-4CD5-83D8-9B73BB899165}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E860804D-B1EF-418F-B7FF-77426DED9329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E860804D-B1EF-418F-B7FF-77426DED9329}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E860804D-B1EF-418F-B7FF-77426DED9329}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E860804D-B1EF-418F-B7FF-77426DED9329}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E1A44A2-5F13-490C-AD7E-8D0FEE794196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E1A44A2-5F13-490C-AD7E-8D0FEE794196}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E1A44A2-5F13-490C-AD7E-8D0FEE794196}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E1A44A2-5F13-490C-AD7E-8D0FEE794196}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25F3477F-541E-41CD-8266-14FD2ED00429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25F3477F-541E-41CD-8266-14FD2ED00429}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25F3477F-541E-41CD-8266-14FD2ED00429}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25F3477F-541E-41CD-8266-14FD2ED00429}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D24111F-8631-4E89-94B9-5E96CDD486AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D24111F-8631-4E89-94B9-5E96CDD486AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D24111F-8631-4E89-94B9-5E96CDD486AA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -97,20 +69,48 @@ Global
 		{806BA3B3-00C2-4B15-BEF5-A55971DC92BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{806BA3B3-00C2-4B15-BEF5-A55971DC92BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{806BA3B3-00C2-4B15-BEF5-A55971DC92BC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EAC06A38-DF91-4C47-9808-C3ABCA485F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC06A38-DF91-4C47-9808-C3ABCA485F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC06A38-DF91-4C47-9808-C3ABCA485F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC06A38-DF91-4C47-9808-C3ABCA485F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{224D599B-005F-4291-A005-D558F23B62B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{224D599B-005F-4291-A005-D558F23B62B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{224D599B-005F-4291-A005-D558F23B62B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{224D599B-005F-4291-A005-D558F23B62B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FB951A-7E71-4F65-ADBB-8E4257478424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99FB951A-7E71-4F65-ADBB-8E4257478424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FB951A-7E71-4F65-ADBB-8E4257478424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99FB951A-7E71-4F65-ADBB-8E4257478424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06CFF9E-0CF5-47AB-90A3-607EABD0BBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06CFF9E-0CF5-47AB-90A3-607EABD0BBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06CFF9E-0CF5-47AB-90A3-607EABD0BBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06CFF9E-0CF5-47AB-90A3-607EABD0BBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD0BE1E-4B4E-4D53-B0FC-1DB5B6553341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD0BE1E-4B4E-4D53-B0FC-1DB5B6553341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD0BE1E-4B4E-4D53-B0FC-1DB5B6553341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD0BE1E-4B4E-4D53-B0FC-1DB5B6553341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F200A548-6C21-401C-B9BC-A69B815531F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F200A548-6C21-401C-B9BC-A69B815531F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F200A548-6C21-401C-B9BC-A69B815531F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F200A548-6C21-401C-B9BC-A69B815531F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F87A10-0B35-4310-A194-C9409E562303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F87A10-0B35-4310-A194-C9409E562303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F87A10-0B35-4310-A194-C9409E562303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F87A10-0B35-4310-A194-C9409E562303}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E1C028D9-F291-432F-9FE6-CCE978EB3D92} = {358BE8F8-90ED-4F28-8AC3-5485039470D1}
-		{77D4C171-058F-4CD5-83D8-9B73BB899165} = {6E055785-8A9F-4F22-8214-1960F9E89C22}
-		{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D} = {55E582C5-A24D-49C6-B37B-C8017BAA1B2D}
 		{E860804D-B1EF-418F-B7FF-77426DED9329} = {6DD3A282-E59F-4967-9037-9184A623B333}
-		{7E1A44A2-5F13-490C-AD7E-8D0FEE794196} = {6E055785-8A9F-4F22-8214-1960F9E89C22}
-		{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107} = {55E582C5-A24D-49C6-B37B-C8017BAA1B2D}
 		{4D24111F-8631-4E89-94B9-5E96CDD486AA} = {358BE8F8-90ED-4F28-8AC3-5485039470D1}
 		{772E1B6A-DB5C-4D29-9745-5B3F4AB2F284} = {55E582C5-A24D-49C6-B37B-C8017BAA1B2D}
 		{19258A6A-B353-4992-90E2-35C5B44D9ACE} = {6DD3A282-E59F-4967-9037-9184A623B333}
 		{806BA3B3-00C2-4B15-BEF5-A55971DC92BC} = {6E055785-8A9F-4F22-8214-1960F9E89C22}
+		{EAC06A38-DF91-4C47-9808-C3ABCA485F98} = {358BE8F8-90ED-4F28-8AC3-5485039470D1}
+		{224D599B-005F-4291-A005-D558F23B62B7} = {358BE8F8-90ED-4F28-8AC3-5485039470D1}
+		{99FB951A-7E71-4F65-ADBB-8E4257478424} = {55E582C5-A24D-49C6-B37B-C8017BAA1B2D}
+		{E06CFF9E-0CF5-47AB-90A3-607EABD0BBFD} = {6E055785-8A9F-4F22-8214-1960F9E89C22}
+		{7DD0BE1E-4B4E-4D53-B0FC-1DB5B6553341} = {6E055785-8A9F-4F22-8214-1960F9E89C22}
 	EndGlobalSection
 EndGlobal
