@@ -11,8 +11,10 @@ How to install the Microservices?
 
 Easiest way is to use a Azure AppService per Microservice. To create and deploy all microservices, you only need an Azure Subscription and a Computer with the following software installed:
 
-1. Visual Studio 2015 Update 3. Microservices code are in netcore and nodejs. Netcore microservices are based on project.json not on csproj, so don't use Visual Studio 2017
+1. Visual Studio 2015 Update 3. Microservices code are in netcore and nodejs. Netcore microservices are based on project.json not on csproj, so don't use Visual Studio 2017. If you want to use VS2017 RC use the VS2017 branch.
 2. Azure SDK .NET (2.9.6)
+
+** Note:** The branch **VS2017** contains the same code ready to be loaded and compiled using VS2017 RC and the netcore tools in preview3 (no project.json).
 
 You also need an active Azure subscription.
 
