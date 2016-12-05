@@ -1,0 +1,26 @@
+{
+  "bindings": [
+    {
+      "type": "blobTrigger",
+      "name": "image",
+      "path": "avatar-input/{filename}.jpg",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "type": "blob",
+      "name": "outputBlob",
+      "path": "avatar-output/{filename}.jpg",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    },
+    {
+      "type": "table",
+      "name": "demographicsTable",
+      "tableName": "RiderDemographics",
+      "connection": "AzureWebJobsDashboard",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

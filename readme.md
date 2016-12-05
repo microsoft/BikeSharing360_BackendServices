@@ -85,6 +85,20 @@ Valid values are:
 
 SQL Server must be accessible via TCP protocol and has to have SQL authentication enabled.
 
+Azure Functions code
+====================
+
+The folder _/azure-functions/ contains the solution _BikeSharing-Functions.sln_ with the code of the _AvatarPhotoProcess_ Azure Function (showed by Beth Massi). Function **is not** published to Azure by the ARM project.
+
+If you publish the function, then **update the AzureWebJobsStorage setting of the FunctionApp** to use the storage deployed in the ARM project. This will ensure that photos uploaded by mobile app are processed by the Azure function.
+
+Also you need to do two manual things in your Azure subscription:
+
+1. Add a Cognitive API Services to your Azure Subscription (Face API)
+2. Create an AppSetting in the FunctionApp named **Vision_API_Subscription_Key** with the value of the API KEY of the Face API.
+
+**Note:** Azure functions projects are only supported by VS2015 Update 3 and require the [Visual Studio Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/) installed.
+
 Final Notes
 ===========
 
