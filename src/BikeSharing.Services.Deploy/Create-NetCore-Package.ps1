@@ -16,4 +16,6 @@ If (Test-Path $out) {
 
 Set-Location -Path $svcSource
 $exe = "dotnet"
+
+&"$exe" restore
 &"$exe" publish -o $out

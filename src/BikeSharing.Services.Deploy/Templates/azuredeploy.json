@@ -439,7 +439,8 @@
             "databasePassword": "[parameters('bikesharing360AdminLoginPassword')]",
             "databaseServer": "[variables('bikesharing360Name')]",
             "databaseUsername": "[parameters('bikesharing360AdminLogin')]",
-            "database": "[parameters('bikesharing-services-ridesName')]"
+            "database": "[parameters('bikesharing-services-ridesName')]",
+            "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0"
           }
         }
       ]
