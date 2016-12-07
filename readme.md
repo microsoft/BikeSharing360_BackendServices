@@ -4,7 +4,7 @@ Connect() 2016 Demos - Microservices
 What is in this repo?
 ---------------------
 
-This repo contains the **backend microservices** used in various Connect() demos (mainly the Xamain apps).
+This repo contains the **backend microservices** used in various Connect() demos (mainly the Xamarin apps).
 
 How to install the Microservices?
 ---------------------------------
