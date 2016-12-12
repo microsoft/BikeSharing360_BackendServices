@@ -437,7 +437,7 @@
           },
           "properties": {
             "databasePassword": "[parameters('bikesharing360AdminLoginPassword')]",
-            "databaseServer": "[variables('bikesharing360Name')]",
+            "databaseServer": "[reference(concat('Microsoft.Sql/servers/', variables('bikesharing360Name'))).fullyQualifiedDomainName]",
             "databaseUsername": "[parameters('bikesharing360AdminLogin')]",
             "database": "[parameters('bikesharing-services-ridesName')]",
             "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0"
