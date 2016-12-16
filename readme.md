@@ -24,23 +24,38 @@ What is in this repo?
 
 This repo contains the **backend microservices** used in various Connect() demos (mainly the Xamarin apps).
 
-How to install the Microservices?
----------------------------------
+Pre-requisites
+--------------
 
-Easiest way is to use a Azure AppService per Microservice. To create and deploy all microservices, you only need an Azure Subscription and a Computer with the following software installed:
+To create and deploy all microservices, you only need an **active Azure Subscription** and a Computer with the following software installed:
 
 1. Visual Studio 2015 Update 3. Microservices code are in netcore and nodejs. Netcore microservices are based on project.json not on csproj, so don't use Visual Studio 2017. If you want to use VS2017 RC use the VS2017 branch.
 2. Azure SDK .NET (2.9.6)
+3. [NodeJS tools for Visual Studio](https://www.visualstudio.com/es/vs/node-js/)
+4. NodeJs installed.
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+**Note:** The NodeJS version that comes with VS2015 is quite old, and still uses NPM 2. Using this version could lead you to the "Path too long" error. It is better to install a **newer version of node** (code was tested against NodeJs 6.4.0). After installing a new version of NodeJS you have to configure Visual Studio 2015 to use this newer version instead the previous one.
+
+To configure VS2015 for using the new version of NodeJs, go to _Tools->Options->Projects and solutions->External web tools_ and add the paths _.\node_modules\.bin_ and _C:\program files\nodejs\_ to the top:
+
+![alt text](./img/vs-node-conf.png "External web tools configuration dialog")
+
+(This document assumes that you installed NodeJs in its default folder (C:\program files\nodejs). If you installed NodeJS in any other folder, update the path accordingly).
+
+Deploying to Azure
+------------------
 
 ** Note:** The branch **VS2017** contains the same code ready to be loaded and compiled using VS2017 RC and the netcore tools in preview3 (no project.json).
 
-You also need an active Azure subscription.
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-Open the solution _BkeSharing.Services.Deploy.sln_. This solution contains the Microservices code and one ARM project to deploy them on any Azure Subscription. Open with VS2015, right click over the "BikeSharing.Services.Deploy" project and select "Deploy -> New".
+Open the solution _BkeSharing.Services.Deploy.sln_. This solution contains the Microservices code and one ARM project to deploy them on any Azure Subscription.
 
-A dialog box will appear, asking you for your account and allowing you to select the subscription to use:
+If needed, install the missing NPM packages for the project _BikeSharing.Services.Rides_. Go to _Solution Explorer_ right click on the node _npm_ of the _BikeSharing.Services.Rides_ project, and select `Install Missing npm Packages`:
+
+![alt text](./img/install-npm-packages.png "Dialog for deploying to a resource group")
+
+This will launch NPM and install all needed NPM packages for the project. Once this is completed just right click over the _BikeSharing.Services.Deploy_ project and select `Deploy -> New`. A dialog box will appear, asking you for your account and allowing you to select the subscription to use:
 
 ![alt text](./img/deploy.png "Dialog for deploying to a resource group")
 
