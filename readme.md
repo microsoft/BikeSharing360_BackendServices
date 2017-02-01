@@ -1,6 +1,19 @@
 Connect() 2016 Demos - Microservices (2017 branch)
 ==================================================
 
+THIS BRANCH IS DEPRECATED. DO NOT USE THIS BRANCH. THIS BRANCH IS DEPRECATED
+============================================================================
+
+Code for VS2107 is found in the VS2017-RC3 branch 
+-------------------------------------------------
+
+**Please use VS2017-RC3 branch instead of this one.**
+
+This branch contains code for the VS2017 RC1. Do not try to load these projects using the RC3 (or later) of VS2017 because you can run into problems due to heavy changes on the csproj format between those Visual Studio versions.
+
+Branch **VS2017-RC3** contains projects ready to be loaded and run using Visual Studio 2017 RC3.
+
+
 What is in this repo?
 ---------------------
 
