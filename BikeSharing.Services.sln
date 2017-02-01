@@ -1,24 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26127.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Events", "src\BikeSharing.Services.Events\BikeSharing.Services.Events.xproj", "{E1C028D9-F291-432F-9FE6-CCE978EB3D92}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Core", "src\BikeSharing.Services.Core\BikeSharing.Services.Core.xproj", "{A3DF7531-915C-4102-8BEF-D42C5E5328F9}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Profiles", "src\BikeSharing.Services.Profiles\BikeSharing.Services.Profiles.xproj", "{77D4C171-058F-4CD5-83D8-9B73BB899165}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Feedback", "src\BikeSharing.Services.Feedback\BikeSharing.Services.Feedback.xproj", "{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D}"
-EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "BikeSharing.Services.Rides", "src\BikeSharing.Services.Rides\BikeSharing.Services.Rides.njsproj", "{E860804D-B1EF-418F-B7FF-77426DED9329}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Profiles.Models", "src\BikeSharing.Services.Profiles.Models\BikeSharing.Services.Profiles.Models.xproj", "{7E1A44A2-5F13-490C-AD7E-8D0FEE794196}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Events.Models", "src\BikeSharing.Services.Events.Models\BikeSharing.Services.Events.Models.xproj", "{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BikeSharing.Services.Security", "src\BikeSharing.Services.Security\BikeSharing.Services.Security.xproj", "{25F3477F-541E-41CD-8266-14FD2ED00429}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feedback", "Feedback", "{55E582C5-A24D-49C6-B37B-C8017BAA1B2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rides", "Rides", "{6DD3A282-E59F-4967-9037-9184A623B333}"
@@ -26,6 +10,22 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events", "Events", "{358BE8F8-90ED-4F28-8AC3-5485039470D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiles", "Profiles", "{6E055785-8A9F-4F22-8214-1960F9E89C22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Events", "src\BikeSharing.Services.Events\BikeSharing.Services.Events.csproj", "{E1C028D9-F291-432F-9FE6-CCE978EB3D92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Core", "src\BikeSharing.Services.Core\BikeSharing.Services.Core.csproj", "{A3DF7531-915C-4102-8BEF-D42C5E5328F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Profiles", "src\BikeSharing.Services.Profiles\BikeSharing.Services.Profiles.csproj", "{77D4C171-058F-4CD5-83D8-9B73BB899165}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Feedback", "src\BikeSharing.Services.Feedback\BikeSharing.Services.Feedback.csproj", "{00CDF431-A1C7-4DD9-AF1D-98BB97B8416D}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "BikeSharing.Services.Rides", "src\BikeSharing.Services.Rides\BikeSharing.Services.Rides.njsproj", "{E860804D-B1EF-418F-B7FF-77426DED9329}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Profiles.Models", "src\BikeSharing.Services.Profiles.Models\BikeSharing.Services.Profiles.Models.csproj", "{7E1A44A2-5F13-490C-AD7E-8D0FEE794196}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Events.Models", "src\BikeSharing.Services.Events.Models\BikeSharing.Services.Events.Models.csproj", "{7DBDAC2B-7E7E-4624-81CF-C20F2F9CE107}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Services.Security", "src\BikeSharing.Services.Security\BikeSharing.Services.Security.csproj", "{25F3477F-541E-41CD-8266-14FD2ED00429}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BikeSharing.Services.Events.Database", "src\BikeSharing.Services.Events.Database\BikeSharing.Services.Events.Database.sqlproj", "{4D24111F-8631-4E89-94B9-5E96CDD486AA}"
 EndProject

@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <DebugType>portable</DebugType>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>BikeSharing.Services.Profiles</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>BikeSharing.Services.Profiles</PackageId>
+    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot;Views;Areas\**\Views;appsettings.json;web.config;docker-compose.yml;Dockerfile;.dockerignore">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BikeSharing.Services.Profiles.Models\BikeSharing.Services.Profiles.Models.csproj" />
+    <ProjectReference Include="..\BikeSharing.Services.Core\BikeSharing.Services.Core.csproj" />
+    <ProjectReference Include="..\BikeSharing.Services.Security\BikeSharing.Services.Security.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.App" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.0.0-msbuild3-final" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.0.2">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Autofac" Version="4.1.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.0.0" />
+    <PackageReference Include="Swashbuckle.SwaggerGen" Version="6.0.0-beta902" />
+    <PackageReference Include="Swashbuckle.SwaggerUi" Version="6.0.0-beta902" />
+    <PackageReference Include="WindowsAzure.Storage" Version="7.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0-msbuild3-final" />
+  </ItemGroup>
+
+</Project>
