@@ -29,7 +29,7 @@ Pre-requisites
 
 To create and deploy all microservices, you only need an **active Azure Subscription** and a Computer with the following software installed:
 
-1. Visual Studio 2015 Update 3. Microservices code are in netcore and nodejs. Netcore microservices are based on project.json not on csproj, so don't use Visual Studio 2017. If you want to use VS2017 RC use the VS2017 branch.
+1. Visual Studio 2015 Update 3. Microservices code are in netcore and nodejs. Netcore microservices are based on project.json not on csproj, so don't use Visual Studio 2017. **If you want to use VS2017 RC use the VS2017-RC3 branch**.
 2. Azure SDK .NET (2.9.6)
 3. [NodeJS tools for Visual Studio](https://www.visualstudio.com/es/vs/node-js/)
 4. NodeJs installed.
