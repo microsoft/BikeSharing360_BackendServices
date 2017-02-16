@@ -125,7 +125,8 @@ Events Seed
 
 You can populate the events database with a new set of events, instead of using the sql file provided.
 
-For doing this, once the database schema is created you need to open the solution __BikeSharing.Services.Events.Seed.sln__ and edit the configuration file (__appsettings.json__) located in __src/BikeSharing.Services.Events.Seed__. You need to provide **a valid Tickermaster API key** and (optionally) a range of dates for the events.
+For doing this, once the database schema is created you need to open the solution __BikeSharing.Services.Events.Seed.sln__ and edit the configuration file (__appsettings.json__) located in __src/BikeSharing.Services.Events.Seed__. You need to provide **a valid Tickermaster API key** and a range of dates for the events.
+Please refer to the file _src/BikeSharing.Services.Events.Seed/appsettings.json_ for more info.
 
 The application __BikeSharing.Services.Events.Seed__ is a netcore 1.0 console application that will connect to TicketMaster API, find events on the range of dates provided (this range defaults from today to today plus 10 days) and populate the events database. Not all events are fed, only events that meet certain requeriments (like having a nice image and specific location).
 

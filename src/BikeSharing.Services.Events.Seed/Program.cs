@@ -19,8 +19,8 @@ namespace BikeSharing.Events.Seed
             Configuration = builder.Build();
             
             Console.WriteLine("+++ Begin import");
-            var importTask = ImportEvents();
-            importTask.Wait();
+            var t = ImportEvents();
+            t.Wait();
 
             Console.WriteLine("+++ Done!");
         }
@@ -28,6 +28,7 @@ namespace BikeSharing.Events.Seed
         private static async Task ImportEvents()
         {
             var maxpages = int.Parse(Configuration["maxpages"]);
+
             using (var db = ConnectDb())
             {
                 var loader = new EventsImporter(db);

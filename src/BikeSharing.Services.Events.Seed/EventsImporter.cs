@@ -14,6 +14,7 @@ namespace BikeSharing.Events.Seed
         private JToken _events;
         private JToken _links;
         private readonly CityEventsDbContext _db;
+        private const int MINIMUM_IMAGE_WIDTH = 1900;
 
         public EventsImporter(CityEventsDbContext db)
         {
@@ -29,8 +30,8 @@ namespace BikeSharing.Events.Seed
 
         private async Task FetchEventsPage(int page)
         {
+            Console.WriteLine($"+++ Fetching page {page}");
             var url = GetUrl(page);
-            Console.WriteLine($"+++ Fetching page {page} using url: '{url}'");
             var client = new HttpClient();
             var response =
                 await client.GetAsync(url);
@@ -38,7 +39,16 @@ namespace BikeSharing.Events.Seed
             var responseString = await response.Content.ReadAsStringAsync();
 
             var data = JObject.Parse(responseString);
+
+            if (data["_embedded"] == null)
+            {
+                Console.WriteLine("+++ NO EVENTS FOUND :( +++");
+                return;
+            }
+
             _events = data["_embedded"]["events"];
+
+
             _pages = data["page"];
             _links = data["_links"];
 
@@ -49,19 +59,8 @@ namespace BikeSharing.Events.Seed
         {
             var city = Program.Configuration["city"];
             var items = int.Parse(Program.Configuration["items"]);
-            var startDate = Program.Configuration["startDate"];         // Must be in ISO 8601 (YYYY-MM-DDTHH:mm:ssZ)
-            var endDate = Program.Configuration["endDate"];             // Must be in ISO 8601 (YYYY-MM-DDTHH:mm:ssZ)
-
-            if (startDate == null)
-            {
-                startDate = DateTime.Now.Date.ToString("yyyy-MM-ddTHH:mm:ssZ");
-            }
-
-            if (endDate == null)
-            {
-                endDate = DateTime.Now.Date.AddDays(10).ToString("yyyy-MM-ddTHH:mm:ssZ");
-            }
-
+            var startDate = Program.Configuration["startDate"];
+            var endDate = Program.Configuration["endDate"];
             var apiKey = Program.Configuration["apikey"];
             var url = $"https://app.ticketmaster.com/discovery/v2/events.json?city={city}&size={items}&apikey={apiKey}";
             if (!string.IsNullOrEmpty(startDate)) {
@@ -157,7 +156,7 @@ namespace BikeSharing.Events.Seed
             {
                 foreach (var image in @event.images)
                 {
-                    if (image.width > 1900)
+                    if (image.width > MINIMUM_IMAGE_WIDTH)
                     {
                         data.ImagePath = image.url;
                     }
@@ -177,7 +176,6 @@ namespace BikeSharing.Events.Seed
                 {
                     if ((bool)classif.primary)
                     {
-
                         dynamic segment = classif.segment;
                         if (segment != null)
                         {
