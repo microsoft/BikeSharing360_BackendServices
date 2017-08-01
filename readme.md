@@ -1,4 +1,4 @@
-#BikeSharing360
+# BikeSharing360
 
 During our Connect(); event this year we presented 15 demos in Scott Guthrie’s and Scott Hanselman’s keynotes. If you missed the keynotes, you can watch the recording in [Channel 9](https://channel9.msdn.com/Events/Connect/2016/Keynotes-Scott-Guthrie-and-Scott-Hanselman).
 
@@ -8,24 +8,19 @@ BikeSharing360 is a fictitious example of a smart bike sharing system with 10,00
 
 In this demo scenario, we built several apps for both the enterprise and the consumer (bike riders). You can find all other BikeSharing360 repos in the following locations:
 
-*[Mobile Apps](https://github.com/Microsoft/BikeSharing360_MobileApps)
-*[Backend Services](https://github.com/Microsoft/BikeSharing360_BackendServices)
-*[Websites](https://github.com/Microsoft/BikeSharing360_Websites)
-*[Single Container Apps](https://github.com/Microsoft/BikeSharing360_SingleContainer)
-*[Multi Container Apps](https://github.com/Microsoft/BikeSharing360_MultiContainer)
-*[Cognitive Services Kiosk App](https://github.com/Microsoft/BikeSharing360_CognitiveServicesKioskApp)
-*[Azure Bot App](https://github.com/Microsoft/BikeSharing360_BotApps)
+* [Mobile Apps](https://github.com/Microsoft/BikeSharing360_MobileApps)
+* [Backend Services](https://github.com/Microsoft/BikeSharing360_BackendServices)
+* [Websites](https://github.com/Microsoft/BikeSharing360_Websites)
+* [Single Container Apps](https://github.com/Microsoft/BikeSharing360_SingleContainer)
+* [Multi Container Apps](https://github.com/Microsoft/BikeSharing360_MultiContainer)
+* [Cognitive Services Kiosk App](https://github.com/Microsoft/BikeSharing360_CognitiveServicesKioskApp)
+* [Azure Bot App](https://github.com/Microsoft/BikeSharing360_BotApps)
 
-Connect() 2016 Demos - Microservices
-====================================
-
-What is in this repo?
----------------------
+## Connect() 2016 Demos - Microservices
 
 This repo contains the **backend microservices** used in various Connect() demos (mainly the Xamarin apps).
 
-Pre-requisites
---------------
+### Prerequisites
 
 To create and deploy all microservices, you only need an **active Azure Subscription** and a Computer with the following software installed:
 
@@ -42,14 +37,13 @@ To configure VS2015 for using the new version of NodeJs, go to _Tools->Options->
 
 (This document assumes that you installed NodeJs in its default folder (C:\program files\nodejs). If you installed NodeJS in any other folder, update the path accordingly).
 
-Deploying to Azure
-------------------
+## Deploying to Azure
 
-** Note:** The branch **VS2017** contains the same code ready to be loaded and compiled using VS2017 RC and the netcore tools in preview3 (no project.json).
+**Note:** The branch **VS2017** contains the same code ready to be loaded and compiled using VS2017 RC and the netcore tools in preview3 (no project.json).
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-Open the solution _BkeSharing.Services.Deploy.sln_. This solution contains the Microservices code and one ARM project to deploy them on any Azure Subscription.
+Open the solution _BikeSharing.Services.Deploy.sln_. This solution contains the Microservices code and one ARM project to deploy them on any Azure Subscription.
 
 If needed, install the missing NPM packages for the project _BikeSharing.Services.Rides_. Go to _Solution Explorer_ right click on the node _npm_ of the _BikeSharing.Services.Rides_ project, and select `Install Missing npm Packages`:
 
@@ -71,8 +65,7 @@ Once you've finished setting the parameters you can just click the "OK" button a
 
 **Note:** Databases are created with no data. To add data to the database follow the steps in the next section.
 
-Adding data to databases
-------------------------
+## Adding data to databases
 
 Once databases are created, you can run the SQL files to fill some sample data. You can use SQL Management studio or
 your preferred tool to run the SQL files provided.
@@ -81,27 +74,24 @@ The files are in _/src/sql_, and there is one sql file for each database (rides-
 
 **Note:** The _rides-data.sql_ is very big (around 0.5GB) because contains a lot of data. For that reason is zipped.
 
-Resources created in Azure
---------------------------
+## Resources created in Azure
 
 ARM project creates the following resources in Azure:
 
-* **1 SQL server **
-* **4 SQL Azure databases ** (one per each microservice)
-* **4 AppServices ** (one per each microservice)
-* **1 Storage account **
+* 1 SQL server
+* 4 SQL Azure databases (one per each microservice)
+* 4 App Services (one per each microservice)
+* 1 Storage account
 
 Also it deploys the code to the 4 appservices and the schema to the 4 databases.
 
-Database projects
-=================
+## Database projects
 
 The solution file _BikeSharing.Services.sln_ contains **the code of all microservices AND database projects**. If you update the database schema, you can create a new DACPAC file using the dataase project.
 
 **Note:** Database schema is deployed during the ARM project deployment by publishing DACPAC files. Those files were generated by these database projects (but just be aware that database projects are *not* compiled during the ARM deploy process. The ARM project has their own dacpac files in _src/BikeSharing.Services.Deploy/Data/dacpac_).
 
-Testing code in local environment
-=================================
+## Testing code in local environment
 
 For testing the code for local environment you need to create the databases. ** Best way to create databases is using the database projects**. Just load them with Visual Studio 2015 and then publish them into your local database.
 
@@ -120,8 +110,7 @@ Valid values are:
 
 SQL Server must be accessible via TCP protocol and has to have SQL authentication enabled.
 
-Events Seed
-===========
+## Events Seed
 
 You can populate the events database with a new set of events, instead of using the sql file provided.
 
@@ -137,8 +126,7 @@ In order to find how to get a TicketMaster API refer to [TicketMaster API docume
 ** Note 2 ** This application has no VS2017 (preview3 tooling) version, so it is not included in the VS2017 branch.
 
 
-Azure Functions code
-====================
+## Azure Functions code
 
 The folder _/azure-functions/ contains the solution _BikeSharing-Functions.sln_ with the code of the _AvatarPhotoProcess_ Azure Function (showed by Beth Massi). Function **is not** published to Azure by the ARM project.
 
@@ -151,8 +139,7 @@ Also you need to do two manual things in your Azure subscription:
 
 **Note:** Azure functions projects are only supported by VS2015 Update 3 and require the [Visual Studio Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/) installed.
 
-Final Notes
-===========
+## Final Notes
 
 * Password is not really validated on login. If login is correct any not-null password is valid. This is to avoid errors on demos and showcases
 * All APIs (except the rides one) have swagger enabled
@@ -165,7 +152,7 @@ You need an Azure account to work with this demo code. You can:
 - [Activate Visual Studio subscriber benefits](https://www.visualstudio.com/products/visual-studio-dev-essentials-vs). Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 - Not a Visual Studio subscriber? Get a $25 monthly Azure credit by joining [Visual Studio Dev Essentials](https://www.visualstudio.com/products/visual-studio-dev-essentials-vs).
 
-## Blogs posts
+## Blog posts
 
 Here's links to blog posts related to this project:
 
@@ -182,8 +169,3 @@ If you see build issues when pulling updates from the repo, try cleaning and reb
 
 ## Code of Conduct 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-
-
-
-
